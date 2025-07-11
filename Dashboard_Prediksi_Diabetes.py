@@ -7,9 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1fhv8q0DGCFtV-xUGvpI8AVpp1ALdbkHW
 """
 
-# Install Streamlit dan Pyngrok
-!pip install streamlit pyngrok --quiet
-
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile diabetes_dashboard.py
 # import streamlit as st
@@ -199,19 +196,3 @@ Original file is located at
 # # Footer
 # st.markdown("---")
 # st.markdown("<p style='text-align: center; color: gray;'>© 2025 - Mini Project Data Mining | Kelompok Septin & Niken</p>", unsafe_allow_html=True)
-
-!pip install pyngrok
-
-from pyngrok import conf
-conf.get_default().auth_token = "2zEHxPLHeiQGDVmdypmJeLIB4s3_72a2EDpzosvgpQU7YELHw"
-
-from pyngrok import ngrok
-
-# Jalankan kembali
-public_url = ngrok.connect("http://localhost:8000")
-print(f"🔗 Akses dashboard di: {public_url}")
-
-# Jalankan streamlit
-!streamlit run dashboard_sampah_kota.py &> /dev/null &
-
-ngrok.kill()
